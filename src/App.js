@@ -33,6 +33,7 @@ class App extends React.Component {
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
   
+        // Whenever there is change in the auth, this will run!
         userRef.onSnapshot(snapShot => {
           this.setState({
             currentUser: {
@@ -50,6 +51,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
+    // has to be unsubscribed otherwise will cause issues
     this.unsubscribeFromAuth();
   }
 

@@ -22,8 +22,12 @@ class SignIn extends React.Component {
         const { email, password } = this.state;
 
         try { 
+            // login with firebase
             await auth.signInWithEmailAndPassword(email, password);
+
+            // Setting it to initial state so that the forms get cleared
             this.setState({ email: '', password: '' })
+            
         } catch (err) {
             console.log('At signin, caught error:' + err)
         }

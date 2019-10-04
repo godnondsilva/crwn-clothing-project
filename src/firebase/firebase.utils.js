@@ -23,8 +23,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   if(!snapShot.exists) {
     const { displayName, email } = userAuth;
+    // for time at the moment of creation
     const createdAt = new Date();
 
+    // creates a document in the firebase database
     try {
       await userRef.set({
         displayName,

@@ -32,8 +32,10 @@ class SignUp extends React.Component {
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
+            // signup with firebase 
             await createUserProfileDocument(user, { displayName })
 
+            // Setting it to initial state so that the forms get cleared
             this.setState({
                 displayName: '',
                 email: '',
