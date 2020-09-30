@@ -34,9 +34,7 @@ class App extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth) {
 
-        // The point of this section is that
-        // after we save the user in "SIGN UP" to the database
-        // we need to access that database and login and load the user. that's why we need this
+        // SIGN UP will call this 
 
         const userRef = await createUserProfileDocument(userAuth);
   
